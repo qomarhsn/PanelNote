@@ -1,15 +1,13 @@
-# Panel Note
-![screenshot](./images/screen1.png)
+<h1 align="center">Panel Note</h1>
 
-Add a small note to your GNOME panel. 
+<h3 align="center">A simple note for your GNOME Shell panel</h3>
 
-[<img src="https://github.com/GittyMac/PanelNote/assets/28932047/e4bec66e-ee85-40d6-b7e5-95cbdc781e27" height="100">](https://extensions.gnome.org/extension/6718/panel-note/)
+<blockquote align="center">
+  Fork of @GittyMac's project with configurable panel placement and GNOME 49 support.
+</blockquote>
 
+<h3 align="center">Preview</h3>
 
-> [!NOTE]
-> This extension is inspired by the macOS app "One Thing."
-
-## Usage
-![screenshot](./images/screen2.png)
-
-When you enable the extension, the default note will appear on your panel. To edit the note, simply click on the note and type in your new note.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/qomarhsn/PanelNote/master/images/screenshot.png" alt="Panel Note Screenshot"/>
+</p>

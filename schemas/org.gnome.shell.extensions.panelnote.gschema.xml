@@ -9,5 +9,20 @@
       <default>"Change my Panel Note!"</default>
       <summary>The note that is showing on the panel.</summary>
     </key>
+
+    <key name="enable-positioning" type="b">
+      <default>false</default>
+      <summary>Enable custom positioning in the panel</summary>
+    </key>
+
+    <key type="i" name="position">
+      <default>2</default>
+      <summary>Panel position (0=left, 1=center, 2=right)</summary>
+    </key>
+
+    <key type="i" name="position-number">
+      <default>0</default>
+      <summary>Order index within the selected panel box</summary>
+    </key>
   </schema>
 </schemalist>

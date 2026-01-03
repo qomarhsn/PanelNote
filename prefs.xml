@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<interface>
+
+<object class="GtkAdjustment" id="Adjust_1">
+	<property name="lower">0</property>
+	<property name="upper">99</property>
+	<property name="step_increment">1</property>
+</object>
+
+<object class="AdwPreferencesPage" id="page_basic">
+	<property name="title" translatable="yes">Settings</property>
+	<property name="icon-name">preferences-system-symbolic</property>
+
+	<child>
+		<object class="AdwPreferencesGroup">
+			<child>
+				<object class="GtkLabel">
+					<property name="label">Click on the note in your panel to edit it. Use the settings below to customize its position.</property>
+					<property name="wrap">true</property>
+					<property name="xalign">0</property>
+				</object>
+			</child>
+		</object>
+	</child>
+
+	<child>
+		<object class="AdwPreferencesGroup">
+			<property name="title" translatable="yes">Panel Position Settings</property>
+			<child>
+				<object class="AdwActionRow">
+					<property name="title" translatable="yes">Enable custom positioning</property>
+					<property name="activatable-widget">field_enablepositioning</property>
+					<child type="prefix">
+						<object class="GtkSwitch" id="field_enablepositioning">
+							<property name="valign">3</property>
+							<property name="active">false</property>
+						</object>
+					</child>
+					<child>
+						<object class="GtkBox" id="box_position">
+							<property name="spacing">12</property>
+							<property name="margin-start">12</property>
+							<property name="hexpand">false</property>
+							<property name="sensitive">false</property>
+							<child>
+								<object class="GtkComboBoxText" id="field_position">
+									<property name="valign">3</property>
+									<items>
+										<item translatable="yes" id="0">Left</item>
+										<item translatable="yes" id="1">Center</item>
+										<item translatable="yes" id="2">Right</item>
+									</items>
+								</object>
+							</child>
+							<child>
+								<object class="GtkSpinButton" id="field_positionnumber">
+									<property name="valign">3</property>
+									<property name="adjustment">Adjust_1</property>
+								</object>
+							</child>
+						</object>
+					</child>
+				</object>
+			</child>
+		</object>
+	</child>
+
+</object>
+
+</interface>

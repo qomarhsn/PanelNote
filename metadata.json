@@ -1,11 +1,11 @@
 {
   "name": "Panel Note",
   "description": "Add a small note to your GNOME panel",
-  "uuid": "panelnote@gittymac.github.io",
+  "uuid": "panelnote@qomarhsn.com",
   "settings-schema": "org.gnome.shell.extensions.panelnote",
-  "url": "https://github.com/GittyMac/PanelNote",
-  "version": 1,
+  "url": "https://github.com/qomarhsn/PanelNote",
+  "version": 2,
   "shell-version": [
-    "45", "46", "47"
+    "45", "46", "47", "48", "49"
   ]
 }

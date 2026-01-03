@@ -33,6 +33,7 @@ const Indicator = GObject.registerClass(
     class Indicator extends PanelMenu.Button {
         _init(settings) {
             super._init(0.0, _('Panel Note'));
+            this._settings = settings;
 
             /* ------------------------------- Panel Note ------------------------------- */
             let noteInPanel = new St.Label({
@@ -69,13 +70,34 @@ const Indicator = GObject.registerClass(
             this.menu.addMenuItem(popupEdit);
             this.menu.actor.add_style_class_name('note-entry');
         }
+
+        _positionChanged() {
+            if (this._settings.get_boolean('enable-positioning')) {
+                this.container.get_parent().remove_child(this.container);
+                let boxes = {
+                    0: Main.panel._leftBox,
+                    1: Main.panel._centerBox,
+                    2: Main.panel._rightBox
+                };
+                let p = this._settings.get_int('position');
+                let i = this._settings.get_int('position-number');
+                boxes[p].insert_child_at_index(this.container, i);
+            }
+        }
     });
 
 export default class IndicatorExampleExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._indicator = new Indicator(this._settings);
+
         Main.panel.addToStatusArea(this.uuid, this._indicator);
+
+        this._settings.connect('changed::enable-positioning', this._indicator._positionChanged.bind(this._indicator));
+        this._settings.connect('changed::position', this._indicator._positionChanged.bind(this._indicator));
+        this._settings.connect('changed::position-number', this._indicator._positionChanged.bind(this._indicator));
+
+        this._indicator._positionChanged();
     }
 
     disable() {

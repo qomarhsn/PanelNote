@@ -56,7 +56,7 @@ const Indicator = GObject.registerClass(
                 style_class: 'popup-menu-icon',
             }));
 
-            this.entry.clutter_text.connect('text-changed', () => {
+            this._textChangedSignal = this.entry.clutter_text.connect('text-changed', () => {
                 let text = this.entry.get_text();
                 if (text == "")
                     text = "No Note";
@@ -84,9 +84,17 @@ const Indicator = GObject.registerClass(
                 boxes[p].insert_child_at_index(this.container, i);
             }
         }
+
+        destroy() {
+            if (this._textChangedSignal) {
+                this.entry.clutter_text.disconnect(this._textChangedSignal);
+                this._textChangedSignal = null;
+            }
+            super.destroy();
+        }
     });
 
-export default class IndicatorExampleExtension extends Extension {
+export default class PanelNoteExtension extends Extension {
     enable() {
         this._settings = this.getSettings();
         this._indicator = new Indicator(this._settings);
@@ -101,7 +109,6 @@ export default class IndicatorExampleExtension extends Extension {
     }
 
     disable() {
-        this._indicator.entry.disconnect();
         this._indicator.destroy();
         this._indicator = null;
         this._settings = null;
